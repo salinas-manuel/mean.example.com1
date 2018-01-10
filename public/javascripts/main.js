@@ -9,12 +9,17 @@ xhr.onload = function(){
   let data = JSON.parse(xhr.response);
 
   var rows = '';
+  //use classic for loop instead of for each loop.
   for(user in data){
     let a = data[user]._id;
     let b = data[user].name;
     let c = data[user].email;
-
-    rows = rows + `<tr><td><a href="#${user}" onClick="send('${user}')">${a}</a></td><td>${b}</td><td>${c}</td></tr>`;
+    console.log(data.users);
+    rows = rows + `<tr>
+      <td><a href="#${user}" onClick="send('${user}')">${a}</a></td>
+      <td>${b}</td>
+      <td>${c}</td>
+    </tr>`;
   }
   var h1 = document.getElementById('title');
   var table = document.createElement('table');
